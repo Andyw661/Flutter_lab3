@@ -20,6 +20,8 @@ class _TipCalculatorPageState extends State<TipCalculatorPage>
   final TextEditingController _billController = TextEditingController();
   final TextEditingController _tipPercentController = TextEditingController();
 
+  final List<String> _history = [];
+
   @override
   void initState() {
     super.initState();
@@ -43,6 +45,7 @@ class _TipCalculatorPageState extends State<TipCalculatorPage>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            
             TextField(
               controller: _billController,
               keyboardType: TextInputType.number,
@@ -72,8 +75,53 @@ class _TipCalculatorPageState extends State<TipCalculatorPage>
             const SizedBox(height: 20),
             Text("Tip Amount: \$${_tip.toStringAsFixed(2)}"),
             Text("Total Bill: \$${_total.toStringAsFixed(2)}"),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  '/history',
+                  arguments: _history,
+                );
+              },
+              child: const Text("View History"),
+            ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class HistoryPage extends StatelessWidget {
+  const HistoryPage({super.key, required this.title, required this.history});
+  final String title;
+  final List<String> history;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text(title)),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: history.isEmpty
+            ? const Center(
+                child: Text(
+                  "No calculations yet.",
+                  style: TextStyle(fontSize: 18),
+                ),
+              )
+            : ListView.builder(
+                itemCount: history.length,
+                itemBuilder: (context, index) {
+                  return Card(
+                    margin: const EdgeInsets.symmetric(vertical: 6),
+                    child: ListTile(
+                      leading: const Icon(Icons.history),
+                      title: Text(history[index]),
+                    ),
+                  );
+                },
+              ),
       ),
     );
   }

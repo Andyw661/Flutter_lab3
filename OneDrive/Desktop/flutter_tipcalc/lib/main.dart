@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes:{
         '/': (contect) => const TipCalculatorPage(title: 'Firebase Tip Calculator'),
+        '/history': (context) => const HistoryPage(title: 'Tip History', history: [],)
       }
     );
   }
