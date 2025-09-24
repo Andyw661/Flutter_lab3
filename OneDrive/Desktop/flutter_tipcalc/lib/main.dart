@@ -11,11 +11,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Tip Calculator - MVP',
+      title: 'Firestroe Tip Calculator - MVP',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
+        useMaterial3: true,
       ),
-      home: const TipCalculatorPage(title: 'MVP Tip Calculator'),
+      initialRoute: '/',
+      routes:{
+        '/': (contect) => const TipCalculatorPage(title: 'Firebase Tip Calculator'),
+      }
     );
   }
 }
