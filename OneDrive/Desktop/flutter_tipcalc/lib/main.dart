@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         '/': (context) =>
             const TipCalculatorPage(title: 'Firebase Tip Calculator'),
         '/history': (context) =>
-            const HistoryPage(title: 'Tip History', history: [],), 
+            const HistoryPage(title: 'Tip History'), 
       },
     );
   }
