@@ -33,6 +33,12 @@ class _TipCalculatorPageState extends State<TipCalculatorPage>
     setState(() {
       _tip = tipAmount;
       _total = totalAmount;
+      _history.add(
+        "Bill: \$${_billController.text}, "
+        "Tip: ${_tipPercentController.text}%, "
+        "Tip Amt: \$${tipAmount.toStringAsFixed(2)}, "
+        "Total: \$${totalAmount.toStringAsFixed(2)}"
+      );
     });
   }
 
