@@ -82,16 +82,7 @@ class _TipCalculatorPageState extends State<TipCalculatorPage>
             const SizedBox(height: 20),
             Text("Tip Amount: \$${_tip.toStringAsFixed(2)}"),
             Text("Total Bill: \$${_total.toStringAsFixed(2)}"),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(
-                  context,
-                  '/history',
-                  arguments: _history,
-                );
-              },
-              child: const Text("View History"),
-            ),
+          
           ],
         ),
       ),
