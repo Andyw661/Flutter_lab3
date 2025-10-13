@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'tip_view.dart';
+import 'calendar_page.dart';
 
 
 class HomeNav extends StatefulWidget {
@@ -12,9 +13,10 @@ class HomeNav extends StatefulWidget {
 class _HomeNavState extends State<HomeNav> {
   int _selectedIndex = 0;
 
-  final List<Widget> _pages = const [
+  final List<Widget> _pages = const[
     TipCalculatorPage(title: 'Tip Calculator'),
     HistoryPage(title: 'History'),
+    CalendarPage(title: 'Calendar'),
   ];
 
   void _onItemTapped(int index) {
@@ -39,6 +41,10 @@ class _HomeNavState extends State<HomeNav> {
           BottomNavigationBarItem(
             icon: Icon(Icons.history),
             label: 'History',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.calendar_today),
+            label: 'Calendar', 
           ),
         ],
       ),
